@@ -51,7 +51,7 @@ export default function Contact() {
           transition={{ delay: 0.4 }}
           className="text-xl mb-8"
         >
-          I'm always interested in hearing about new projects and opportunities.
+          I&#39;m always interested in hearing about new projects and opportunities.
         </motion.p>
         <motion.div 
           initial={{ opacity: 0 }}
