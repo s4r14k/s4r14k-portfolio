@@ -11,41 +11,55 @@ export default function GameDevelopment() {
         {/* FAB Store */}
         <div className="mb-16">
           <h3 className="text-2xl font-semibold mb-6 text-center">FAB Store Plugins</h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <motion.a
-              href="https://www.fab.com/listings/76c87cde-6269-4b3e-9da8-f7433ed0f36c"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <h4 className="text-xl font-semibold mb-4">Plugin 1</h4>
-              <p className="text-gray-600 dark:text-gray-300">Check out this amazing game development plugin on FAB Store</p>
-            </motion.a>
-            
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             <motion.a
               href="https://www.fab.com/listings/b8d6cb0f-ad1f-4b77-b652-5de3c7bd16cf"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
+              className="bg-white dark:bg-gray-800 p-0 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              <h4 className="text-xl font-semibold mb-4">Plugin 2</h4>
-              <p className="text-gray-600 dark:text-gray-300">Explore another powerful game development tool</p>
+              <img src="/images/2dTemplate.jpg" alt="FAB Store Plugin 1" className="w-full mb-4 rounded-t-lg" />
+              <h4 className="text-xl font-semibold mb-4 px-6">2D Platformer template</h4>
+              <p className="text-gray-600 dark:text-gray-300 px-6 pb-6">Elevate Your Game Development with a Comprehensive 2D Platformer Template for Unreal Engine</p>
             </motion.a>
             
             <motion.a
               href="https://www.fab.com/listings/2d380b91-3a6c-4f70-ae9c-dc6d88e2772d"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
+              className="bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              <h4 className="text-xl font-semibold mb-4">Plugin 3</h4>
-              <p className="text-gray-600 dark:text-gray-300">Discover this innovative game development solution</p>
+              <img src="/images/minimap.jpg" alt="FAB Store Plugin 1" className="w-full mb-4 rounded-t-lg" />
+              <h4 className="text-xl font-semibold mb-4 px-6">Minimap system</h4>
+              <p className="text-gray-600 dark:text-gray-300 px-6 pb-6">Seamless Integration: Works flawlessly with your existing Unreal Engine workflow.</p>
+            </motion.a>
+            <motion.a
+                href="https://www.fab.com/listings/06161426-776d-45bb-b939-a9f1910e0996"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+            >
+              <img src="/images/dialogue.jpg" alt="FAB Store Plugin 3" className="w-full mb-4 rounded-t-lg" />
+              <h4 className="text-xl font-semibold mb-4 px-6">Dialogue Widget</h4>
+              <p className="text-gray-600 dark:text-gray-300 px-6 pb-6">Unreal Dialogue System - Cinematic Conversations & Branching Narratives</p>
+            </motion.a>
+            <motion.a
+                href="https://www.fab.com/listings/76c87cde-6269-4b3e-9da8-f7433ed0f36c"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+            >
+              <img src="/images/save-game.jpg" alt="FAB Store Plugin 4" className="w-full mb-4 rounded-t-lg" />
+              <h4 className="text-xl font-semibold mb-4 px-6">Simple Save Game</h4>
+              <p className="text-gray-600 dark:text-gray-300 px-6 pb-6">With a few simple clicks, you can set up a system to save and load player progress, game states, and other important data.</p>
             </motion.a>
           </div>
         </div>
