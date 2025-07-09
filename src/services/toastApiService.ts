@@ -12,10 +12,12 @@ export const toastApiService = {
    * @param successMessage - Optional message to show on success
    * @param errorMessage - Optional message to show on error (will be overridden by the error response message if available)
    * @returns Promise with the response data
+   * @template T - The type of the response data
+   * @template D - The type of the request data, defaults to object
    */
-  post: async <T>(
+  post: async <T, D extends object = object>(
     endpoint: string, 
-    data: any, 
+    data: D, 
     loadingMessage = 'Processing request...', 
     successMessage = 'Request successful!', 
     errorMessage = 'An error occurred'

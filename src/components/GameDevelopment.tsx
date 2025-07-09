@@ -1,13 +1,14 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 export default function GameDevelopment() {
   return (
     <section id="game-dev" className="py-20 px-4">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl font-bold mb-12 text-center">Game Development</h2>
-        
+
         {/* FAB Store */}
         <div className="mb-16">
           <h3 className="text-2xl font-semibold mb-6 text-center">FAB Store Plugins</h3>
@@ -20,11 +21,18 @@ export default function GameDevelopment() {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              <img src="/images/2dTemplate.jpg" alt="FAB Store Plugin 1" className="w-full mb-4 rounded-t-lg" />
+              <Image 
+                src="/images/2dTemplate.jpg" 
+                alt="2D Platformer Template for Unreal Engine" 
+                width={800} 
+                height={450} 
+                className="w-full mb-4 rounded-t-lg"
+                priority 
+              />
               <h4 className="text-xl font-semibold mb-4 px-6">2D Platformer template</h4>
               <p className="text-gray-600 dark:text-gray-300 px-6 pb-6">Elevate Your Game Development with a Comprehensive 2D Platformer Template for Unreal Engine</p>
             </motion.a>
-            
+
             <motion.a
               href="https://www.fab.com/listings/2d380b91-3a6c-4f70-ae9c-dc6d88e2772d"
               target="_blank"
@@ -33,7 +41,13 @@ export default function GameDevelopment() {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              <img src="/images/minimap.jpg" alt="FAB Store Plugin 1" className="w-full mb-4 rounded-t-lg" />
+              <Image 
+                src="/images/minimap.jpg" 
+                alt="Minimap System for Unreal Engine" 
+                width={800} 
+                height={450} 
+                className="w-full mb-4 rounded-t-lg" 
+              />
               <h4 className="text-xl font-semibold mb-4 px-6">Minimap system</h4>
               <p className="text-gray-600 dark:text-gray-300 px-6 pb-6">Seamless Integration: Works flawlessly with your existing Unreal Engine workflow.</p>
             </motion.a>
@@ -45,7 +59,13 @@ export default function GameDevelopment() {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
             >
-              <img src="/images/dialogue.jpg" alt="FAB Store Plugin 3" className="w-full mb-4 rounded-t-lg" />
+              <Image 
+                src="/images/dialogue.jpg" 
+                alt="Dialogue Widget System for Unreal Engine" 
+                width={800} 
+                height={450} 
+                className="w-full mb-4 rounded-t-lg" 
+              />
               <h4 className="text-xl font-semibold mb-4 px-6">Dialogue Widget</h4>
               <p className="text-gray-600 dark:text-gray-300 px-6 pb-6">Unreal Dialogue System - Cinematic Conversations & Branching Narratives</p>
             </motion.a>
@@ -57,13 +77,19 @@ export default function GameDevelopment() {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
             >
-              <img src="/images/save-game.jpg" alt="FAB Store Plugin 4" className="w-full mb-4 rounded-t-lg" />
+              <Image 
+                src="/images/save-game.jpg" 
+                alt="Simple Save Game System for Unreal Engine" 
+                width={800} 
+                height={450} 
+                className="w-full mb-4 rounded-t-lg" 
+              />
               <h4 className="text-xl font-semibold mb-4 px-6">Simple Save Game</h4>
               <p className="text-gray-600 dark:text-gray-300 px-6 pb-6">With a few simple clicks, you can set up a system to save and load player progress, game states, and other important data.</p>
             </motion.a>
           </div>
         </div>
-        
+
         {/* Udemy Course */}
         <div className="text-center">
           <h3 className="text-2xl font-semibold mb-6">Udemy Course</h3>

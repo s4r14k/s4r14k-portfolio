@@ -5,8 +5,10 @@ export const apiService = {
    * @param endpoint - The API endpoint to call
    * @param data - The data to send in the request body
    * @returns Promise with the response data
+   * @template T - The type of the response data
+   * @template D - The type of the request data, defaults to object
    */
-  post: async <T>(endpoint: string, data: any): Promise<T> => {
+  post: async <T, D extends object = object>(endpoint: string, data: D): Promise<T> => {
     const apiUrl = process.env.NEXT_PUBLIC_API_URL || '';
     const apiKey = process.env.NEXT_PUBLIC_API_KEY || '';
     const response = await fetch(`${apiUrl}${endpoint}`, {
