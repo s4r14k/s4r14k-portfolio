@@ -6,6 +6,7 @@ import { ToastProvider } from "@/context/ToastContext";
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 import Footer from "@/components/Footer";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/next";
 
 export default function ClientLayout({
   children,
@@ -40,6 +41,7 @@ export default function ClientLayout({
         </ToastProvider>
       </GoogleReCaptchaProvider>
       <SpeedInsights/>
+      <Analytics/>
     </>
   );
 }
