@@ -1,7 +1,11 @@
-import type { Metadata } from "next";
+'use client';
+
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import {SpeedInsights} from "@vercel/speed-insights/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastProvider } from "../context/ToastContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,13 +17,6 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "s4r14k - Portfolio",
-  description: "Personal portfolio showcasing my projects and skills",
-  authors: [{ name: "s4r14k" }],
-  keywords: ["portfolio", "developer", "software engineer", "projects", "skills"],
-};
-
 export default function RootLayout({
   children,
 }: {
@@ -28,8 +25,22 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
       <body className="bg-white dark:bg-black text-black dark:text-white">
-        {children}
-      <SpeedInsights/>
+        <ToastProvider>
+          {children}
+          <ToastContainer 
+            position="bottom-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light"
+          />
+        </ToastProvider>
+        <SpeedInsights/>
       </body>
     </html>
   );

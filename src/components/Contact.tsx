@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import { emailService } from '../services/emailService';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -10,17 +11,25 @@ export default function Contact() {
     message: ''
   });
 
-  const [formStatus, setFormStatus] = useState({
-    submitted: false,
-    error: false,
-    message: ''
-  });
+  // Form submission state is now handled by toast notifications
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setFormStatus({ submitted: true, error: false, message: 'Message sent successfully!' });
-    // Here you would typically add your form submission logic
-    setFormData({ name: '', email: '', message: '' });
+
+    try {
+      // Use the email service to send the email (toast notifications are handled by the service)
+      await emailService.sendEmail({
+        name: formData.name,
+        email: formData.email,
+        body: formData.message
+      });
+
+      // Clear form on success
+      setFormData({ name: '', email: '', message: '' });
+    } catch (error) {
+      // Error is already handled by toast notifications in the service
+      console.error('Error sending message:', error);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -164,16 +173,6 @@ export default function Contact() {
           >
             Send Message
           </motion.button>
-
-          {formStatus.submitted && (
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              className={`text-center p-3 rounded-md ${formStatus.error ? 'bg-red-100 text-red-700' : 'bg-green-100 text-green-700'}`}
-            >
-              {formStatus.message}
-            </motion.div>
-          )}
         </motion.form>
       </motion.div>
     </section>
