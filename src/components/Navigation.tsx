@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface NavigationProps {
   scrollToSection: (id: string) => void;
@@ -17,7 +18,7 @@ export default function Navigation({ scrollToSection }: NavigationProps) {
     if (isHomePage) {
       scrollToSection(id);
     } else {
-      // If not on home page, navigate to home page with hash
+      // If not on the home page, navigate to the home page with hash
       window.location.href = `/#${id}`;
     }
   };
@@ -26,7 +27,10 @@ export default function Navigation({ scrollToSection }: NavigationProps) {
     <nav className="fixed w-full bg-white dark:bg-black z-50 shadow-sm">
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex justify-between items-center h-16">
-          <Link href="/" className="text-xl font-bold">s4r14k</Link>
+          <Link href="/" className="flex items-center text-xl font-bold">
+            <Image src="/logo.png" alt="Logo" width={30} height={30} className="mr-2" />
+            s4r14k
+          </Link>
           <div className="hidden md:flex space-x-8">
             <button onClick={() => handleNavigation('hero')} className="hover:text-blue-600 dark:hover:text-blue-400">Home</button>
             <button onClick={() => handleNavigation('game-dev')} className="hover:text-blue-600 dark:hover:text-blue-400">Game Development</button>

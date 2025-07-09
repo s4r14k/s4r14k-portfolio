@@ -1,13 +1,7 @@
-'use client';
-
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import { ToastProvider } from "../context/ToastContext";
-import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
-import Footer from "@/components/Footer";
+import ClientLayout from "@/components/ClientLayout";
+import { metadata } from "./metadata";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,6 +13,8 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+export { metadata };
+
 export default function RootLayout({
   children,
 }: {
@@ -27,32 +23,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
       <body className="bg-white dark:bg-black text-black dark:text-white flex flex-col min-h-screen">
-        <GoogleReCaptchaProvider
-          reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""}
-          scriptProps={{
-            async: true,
-            defer: true,
-            appendTo: "head",
-          }}
-        >
-          <ToastProvider>
-            {children}
-            <Footer />
-            <ToastContainer 
-              position="top-right"
-              autoClose={5000}
-              hideProgressBar={false}
-              newestOnTop
-              closeOnClick
-              rtl={false}
-              pauseOnFocusLoss
-              draggable
-              pauseOnHover
-              theme="light"
-            />
-          </ToastProvider>
-        </GoogleReCaptchaProvider>
-        <SpeedInsights/>
+        <ClientLayout>
+          {children}
+        </ClientLayout>
       </body>
     </html>
   );
