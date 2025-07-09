@@ -8,6 +8,7 @@ export interface EmailData {
   name: string;
   email: string;
   body: string;
+  recaptchaToken?: string; // Optional for backward compatibility
 }
 
 // Email service for handling email-related API requests

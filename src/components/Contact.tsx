@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { emailService } from '../services/emailService';
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -11,17 +12,30 @@ export default function Contact() {
     message: ''
   });
 
+  // Get the reCAPTCHA execute function
+  const { executeRecaptcha } = useGoogleReCaptcha();
+
   // Form submission state is now handled by toast notifications
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    // Check if reCAPTCHA is available
+    if (!executeRecaptcha) {
+      console.error('reCAPTCHA has not been loaded');
+      return;
+    }
+
     try {
-      // Use the email service to send the email (toast notifications are handled by the service)
+      // Execute reCAPTCHA and get the token
+      const token = await executeRecaptcha('contact_form');
+
+      // Use the email service to send the email with the reCAPTCHA token
       await emailService.sendEmail({
         name: formData.name,
         email: formData.email,
-        body: formData.message
+        body: formData.message,
+        recaptchaToken: token
       });
 
       // Clear form on success
