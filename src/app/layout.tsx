@@ -7,6 +7,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastProvider } from "../context/ToastContext";
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
+import Footer from "@/components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,7 +26,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <body className="bg-white dark:bg-black text-black dark:text-white">
+      <body className="bg-white dark:bg-black text-black dark:text-white flex flex-col min-h-screen">
         <GoogleReCaptchaProvider
           reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""}
           scriptProps={{
@@ -36,8 +37,9 @@ export default function RootLayout({
         >
           <ToastProvider>
             {children}
+            <Footer />
             <ToastContainer 
-              position="bottom-right"
+              position="top-right"
               autoClose={5000}
               hideProgressBar={false}
               newestOnTop

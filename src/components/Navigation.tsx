@@ -1,6 +1,8 @@
 'use client';
 
 import { useState } from 'react';
+import { usePathname } from 'next/navigation';
+import Link from 'next/link';
 
 interface NavigationProps {
   scrollToSection: (id: string) => void;
@@ -8,18 +10,28 @@ interface NavigationProps {
 
 export default function Navigation({ scrollToSection }: NavigationProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const isHomePage = pathname === '/';
+
+  const handleNavigation = (id: string) => {
+    if (isHomePage) {
+      scrollToSection(id);
+    } else {
+      // If not on home page, navigate to home page with hash
+      window.location.href = `/#${id}`;
+    }
+  };
 
   return (
     <nav className="fixed w-full bg-white dark:bg-black z-50 shadow-sm">
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex justify-between items-center h-16">
-          <span className="text-xl font-bold">s4r14k</span>
+          <Link href="/" className="text-xl font-bold">s4r14k</Link>
           <div className="hidden md:flex space-x-8">
-            <button onClick={() => scrollToSection('hero')} className="hover:text-blue-600 dark:hover:text-blue-400">Home</button>
-            <button onClick={() => scrollToSection('projects')} className="hover:text-blue-600 dark:hover:text-blue-400">Projects</button>
-            <button onClick={() => scrollToSection('game-dev')} className="hover:text-blue-600 dark:hover:text-blue-400">Game Development</button>
-            <button onClick={() => scrollToSection('skills')} className="hover:text-blue-600 dark:hover:text-blue-400">Skills</button>
-            <button onClick={() => scrollToSection('contact')} className="hover:text-blue-600 dark:hover:text-blue-400">Contact</button>
+            <button onClick={() => handleNavigation('hero')} className="hover:text-blue-600 dark:hover:text-blue-400">Home</button>
+            <button onClick={() => handleNavigation('game-dev')} className="hover:text-blue-600 dark:hover:text-blue-400">Game Development</button>
+            <button onClick={() => handleNavigation('skills')} className="hover:text-blue-600 dark:hover:text-blue-400">Skills</button>
+            <button onClick={() => handleNavigation('contact')} className="hover:text-blue-600 dark:hover:text-blue-400">Contact</button>
           </div>
           <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden p-2">
             <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -31,11 +43,11 @@ export default function Navigation({ scrollToSection }: NavigationProps) {
         {isMenuOpen && (
           <div className="md:hidden py-4">
             <div className="flex flex-col space-y-4">
-              <button onClick={() => scrollToSection('hero')} className="hover:text-blue-600 dark:hover:text-blue-400">Home</button>
-              <button onClick={() => scrollToSection('projects')} className="hover:text-blue-600 dark:hover:text-blue-400">Projects</button>
-              <button onClick={() => scrollToSection('game-dev')} className="hover:text-blue-600 dark:hover:text-blue-400">Game Development</button>
-              <button onClick={() => scrollToSection('skills')} className="hover:text-blue-600 dark:hover:text-blue-400">Skills</button>
-              <button onClick={() => scrollToSection('contact')} className="hover:text-blue-600 dark:hover:text-blue-400">Contact</button>
+              <button onClick={() => handleNavigation('hero')} className="hover:text-blue-600 dark:hover:text-blue-400">Home</button>
+              <button onClick={() => handleNavigation('projects')} className="hover:text-blue-600 dark:hover:text-blue-400">Projects</button>
+              <button onClick={() => handleNavigation('game-dev')} className="hover:text-blue-600 dark:hover:text-blue-400">Game Development</button>
+              <button onClick={() => handleNavigation('skills')} className="hover:text-blue-600 dark:hover:text-blue-400">Skills</button>
+              <button onClick={() => handleNavigation('contact')} className="hover:text-blue-600 dark:hover:text-blue-400">Contact</button>
             </div>
           </div>
         )}

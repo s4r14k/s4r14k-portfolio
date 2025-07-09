@@ -1,6 +1,7 @@
 'use client';
 
-import Navigation from '@/components/Navigation';
+import Header from '@/components/Header';
+import Content from '@/components/Content';
 import Hero from '@/components/Hero';
 import GameDevelopment from '@/components/GameDevelopment';
 import Skills from '@/components/Skills';
@@ -15,12 +16,14 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen">
-      <Navigation scrollToSection={scrollToSection} />
-      <Hero />
-      <GameDevelopment />
-      <Skills />
-      <Contact />
-    </div>
+    <>
+      <Header scrollToSection={scrollToSection} />
+      <Content>
+        <Hero />
+        <GameDevelopment />
+        <Skills />
+        <Contact />
+      </Content>
+    </>
   );
 }

@@ -4,7 +4,7 @@ import { ChevronDownIcon } from '@heroicons/react/24/outline';
 
 export default function Hero() {
   return (
-    <section id="hero" className="h-screen flex flex-col items-center justify-center text-center px-4 pt-16 relative overflow-hidden bg-gradient-to-br from-gray-900 to-black">
+    <section id="hero" className="h-[90vh] flex flex-col items-center justify-center text-center px-4 pt-16 relative overflow-hidden bg-gradient-to-br from-gray-900 to-black">
       <div className="space-y-6 relative z-[2] animate-fadeIn">
         <h1 className="text-5xl sm:text-6xl font-bold mb-4 text-white">
           Hi, I&#39;m <span className="text-blue-400">s4r14k</span>

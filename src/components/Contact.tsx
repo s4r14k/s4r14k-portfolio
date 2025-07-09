@@ -80,7 +80,7 @@ export default function Contact() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.6 }}
-          className="space-x-4"
+          className="flex flex-wrap gap-4 justify-center"
         >
           <motion.a
             whileHover={{ scale: 1.05 }}
@@ -88,7 +88,7 @@ export default function Contact() {
             href="https://github.com/s4r14k"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 md:py-4 md:text-lg md:px-10"
+            className="inline-flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 md:py-4 md:text-lg md:px-10"
           >
             GitHub Profile
           </motion.a>
@@ -98,7 +98,7 @@ export default function Contact() {
             href="https://www.youtube.com/@s4r14k"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-red-600 hover:bg-red-700 md:py-4 md:text-lg md:px-10"
+            className="inline-flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-red-600 hover:bg-red-700 md:py-4 md:text-lg md:px-10"
           >
             YouTube Channel
           </motion.a>
@@ -108,7 +108,7 @@ export default function Contact() {
             href="https://www.udemy.com/course/make-a-2d-platformer-in-unreal-engine-5-c/?instructorPreviewMode=guest&couponCode=ST4MT240225A"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 md:py-4 md:text-lg md:px-10"
+            className="inline-flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 md:py-4 md:text-lg md:px-10"
           >
             Udemy Course
           </motion.a>
@@ -118,7 +118,7 @@ export default function Contact() {
             href="https://www.fab.com/sellers/s4r14k%20store"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 md:py-4 md:text-lg md:px-10"
+            className="inline-flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 md:py-4 md:text-lg md:px-10"
           >
             FAB Store
           </motion.a>
